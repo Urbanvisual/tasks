@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "f3aa96ae-8561-46f9-8e63-816f7066bb6e",
+		"name": "TaskApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33701575"
+	},
+	"item": [
+		{
+			"name": "CreateTask",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"hola\",\n    \"description\":\"esta es una descripcion\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{urlBase}}/task/task",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"task",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTask",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{urlBase}}/task/task/:id",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"task",
+						"task",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getbyid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlBase}}/task/task/:id",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"task",
+						"task",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{urlBase}}/task/task/:id",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"task",
+						"task",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllTasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{urlBase}}/task/tasks",
+					"host": [
+						"{{urlBase}}"
+					],
+					"path": [
+						"task",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
