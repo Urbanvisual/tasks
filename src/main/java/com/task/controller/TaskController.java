@@ -17,6 +17,11 @@ public class TaskController {
 
     private final TasksServices tasksServices;
 
+    @GetMapping("/")
+    public String ping(){
+        return "pong";
+    }
+
     @PostMapping ("/task")
     public TaskDto createTask(@RequestBody TaskDto task) {
       return tasksServices.createTask(task);
@@ -27,7 +32,7 @@ public class TaskController {
     @GetMapping("/tasks")
     public ResponseEntity<List<TaskDto>> getAllTasks() {
         List<TaskDto> tasks = tasksServices.getAllTasks();
-        return ResponseEntity.ok(tasks);
+        return ResponseEntity.ok(tasks.reversed());
     }
 
 
@@ -39,8 +44,8 @@ public class TaskController {
     }
 
     @PutMapping ("/task/{id}")
-    public TaskDto updateTask(@PathVariable Long id, @RequestBody TaskDto task) {
-        return tasksServices.updateTask(id, task);
+    public TaskDto updateTask(@PathVariable Long id) {
+        return tasksServices.updateTask(id);
     }
 
 
