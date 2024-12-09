@@ -70,13 +70,11 @@ public class TasksServices {
         }
     }
 
-    public TaskDto updateTask(Long id, TaskDto taskDto) {
+    public TaskDto updateTask(Long id) {
         Task existsTask = taskRepository.findById(id)
                 .orElseThrow();
 
-        existsTask.setTitle(taskDto.getTitle());
-        existsTask.setDescription(taskDto.getDescription());
-        existsTask.setCompleted(taskDto.getCompleted() != null ? taskDto.getCompleted() : false);
+        existsTask.setCompleted(!existsTask.getCompleted());
 
         Task updatedTask = taskRepository.save(existsTask);
 
